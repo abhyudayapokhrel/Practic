@@ -3,7 +3,7 @@ const listContainer = document.getElementById("todo-list");
 
 
 const addTask = function(){
-    if (inputBox.value === ''){
+    if (inputBox.value === ''|| inputBox.value === " "){
         alert("you must write something");
     }
     else{
