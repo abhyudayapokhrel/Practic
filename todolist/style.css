@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2c51, #320942); /* Darker gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.todo-app {
+    background: #10151c; /* Dark background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.todo-app h2 {
+    color: #f2f2f2;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222831;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+    color: #f2f2f2;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    background: #d6443c;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #b5322b;
+}
+
+#todo-list {
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+#todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure text and span are on opposite sides */
+    background: #171e27;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 16px;
+    position: relative; /* Required for the pseudo-element alignment */
+}
+
+#todo-list li::before {
+    content: '';
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px; /* Space between the image and the text */
+    flex-shrink: 0; /* Prevent shrinking of the image */
+}
+
+#todo-list li.checked::before {
+    background-image: url(images/checked.png);
+}
+
+#todo-list li.checked {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+#todo-list li span {
+    display: inline-block;
+    background: #d6443c;
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#todo-list li span:hover {
+    background: #b5322b;
+}
