@@ -87,6 +87,13 @@ function showExpenseData() {
     if (data) expenseListContainer.innerHTML = data;
 }
 
+function remove(e){
+  if (e.target.tagName === "SPAN"){
+        e.target.parentElement.remove();
+        saveIncomeData();
+        saveExpenseData();}
+}
+
 // Calculate totals and update display
 function updateTotal() {
     const incomes = [...incomeListContainer.querySelectorAll("li")].map(li => parseFloat(li.textContent) || 0);
