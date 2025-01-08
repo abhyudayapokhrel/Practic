@@ -128,4 +128,5 @@ removeButton.addEventListener('click',function(){
     saveIncomeData();
     saveExpenseData();
     updateTotal();
-})
+});
+
