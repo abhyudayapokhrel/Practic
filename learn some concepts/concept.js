@@ -5,3 +5,11 @@ arr.forEach((element, index, array) => {
     console.log(element, index, array);
 });
 
+// objects in  js
+
+let person= {};
+person.name = 'John';   
+person.lastName = 'Doe';   
+person.age = 50;
+
+console.table(person);
