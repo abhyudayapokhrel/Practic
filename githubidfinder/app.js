@@ -20,7 +20,7 @@ async function getUser(username){
 
 async function getRepos(username){
     try{
-        const {data} = await axios(APIURL + username +'/repos');
+        const {data} = await axios(APIURL + username +'/repos?sort=created');
         addReposToCard(data);
 
     }catch(err){
@@ -60,6 +60,18 @@ createErrorCard = (msg) => {
 
 function addReposToCard (repos){
     const reposEl = document.getElementById('repos');
+
+    repos
+        .slics(0,10)
+         .forEach(repo =>{
+            const  repoEl = document.createElement('a');
+            repoEl.classList.add('repo');
+            repoEl.href = repo.html_url; // from api(html_url)
+            repoEl.target = '_blank';
+            repoEl.innerText = repo.name;
+
+            reposEl.appendChild(repoEl);
+         })
 }
 
 form.addEventListener('submit', (e)=>{
@@ -70,4 +82,4 @@ form.addEventListener('submit', (e)=>{
         getUser(user);
         search.value = '';
     }
-})
+});
