@@ -1,9 +1,8 @@
-const APIURL = 'https://api.github.com/users';
+const APIURL = 'https://api.github.com/users/';
 const form = document.getElementById("form");
 const main = document.getElementById("main");
 const search = document.getElementById("search");
 
-getUser('abhyudayapokhrel');
 
 async function getUser(username){
     try{
@@ -59,10 +58,10 @@ createErrorCard = (msg) => {
 }
 
 function addReposToCard (repos){
-    const reposEl = document.getElementById('repos');
+    const reposEl = document.getElementById('repo');
 
     repos
-        .slics(0,10)
+        .slice(0,10)
          .forEach(repo =>{
             const  repoEl = document.createElement('a');
             repoEl.classList.add('repo');
