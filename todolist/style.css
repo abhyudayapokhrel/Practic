@@ -82,6 +82,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Ensure text and span are on opposite sides */
+    cursor: pointer;
     background: #171e27;
     border: 1px solid #333;
     border-radius: 5px;
