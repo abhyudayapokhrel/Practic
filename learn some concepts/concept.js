@@ -1,3 +1,5 @@
+'use strict';
+
 // concepts of array methods
 // 1. forEach
 let arr = [1, 2, 3, 4, 5];
@@ -37,3 +39,19 @@ document.getElementById("parent").addEventListener("click", function() {
     console.log("Parent DIV Bubbling");
   }, false);  // Bubbling phase (false)
   
+
+// oop in javascript
+
+// 1. constructor function
+ // arrow function cannot be used as constructor function because it does not have its own this keyword
+  const Person = function(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;     
+  };
+
+  new Person('John', 1990);
+
+  // first New() is  created, an empty object is created  
+  // then function is called, this = {} i.e empty object
+  // {} is linked to prototype
+  // function automatically returns the object
