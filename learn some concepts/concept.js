@@ -45,8 +45,16 @@ document.getElementById("parent").addEventListener("click", function() {
 // 1. constructor function
  // arrow function cannot be used as constructor function because it does not have its own this keyword
   const Person = function(firstName, birthYear) {
+
+    //Instance properties
     this.firstName = firstName;
-    this.birthYear = birthYear;     
+    this.birthYear = birthYear;
+    
+    // methods
+    // never create a method inside a constructor function, because it will be created in every object
+    // this.calcAge = function() {
+    //   console.log(2037 - this.birthYear);
+    // };
   };
 
   new Person('John', 1990);
