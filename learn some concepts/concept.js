@@ -57,6 +57,18 @@ document.getElementById("parent").addEventListener("click", function() {
     // };
   };
 
+  const Housing = function(type, location, price) { 
+    this.type = type;
+    this.location = location;
+    this.price = price;
+
+    console.log(
+      `This ${this.type} is located in ${this.location} and costs ${this.price}`
+    );
+  };
+
+  const BABAKILLA = new Housing('apartment', 'Lalitpur', 2000000);
+
   new Person('John', 1990);
 
   // first New() is  created, an empty object is created  
