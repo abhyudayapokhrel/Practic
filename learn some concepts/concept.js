@@ -69,6 +69,8 @@ document.getElementById("parent").addEventListener("click", function() {
 
   const BABAKILLA = new Housing('apartment', 'Lalitpur', 2000000);
 
+  const john = new Person('Ram', 1961);
+
   new Person('John', 1990);
 
   // first New() is  created, an empty object is created  
