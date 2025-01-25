@@ -77,3 +77,14 @@ document.getElementById("parent").addEventListener("click", function() {
   // then function is called, this = {} i.e empty object
   // {} is linked to prototype
   // function automatically returns the object
+
+
+  // prortotype
+  // every function in js has a property called prototype
+  Person.prototype.calcAge = function() {
+    console.log(2037 - this.birthYear);
+  };
+
+  john.calcAge();
+
+  console.log(john.__proto__ === Person.prototype); // true
