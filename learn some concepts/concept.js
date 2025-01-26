@@ -85,6 +85,12 @@ document.getElementById("parent").addEventListener("click", function() {
     console.log(2037 - this.birthYear);
   };
 
+  Person.prototype.species = `Homo Sapiens`;
+
+  console.log(john.__proto__);
+  console.log(john.prototype); // undefined
+  console.log(john.species);
+
   john.calcAge();
 
   console.log(john.__proto__ === Person.prototype); // true
