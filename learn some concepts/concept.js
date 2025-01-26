@@ -94,3 +94,5 @@ document.getElementById("parent").addEventListener("click", function() {
   john.calcAge();
 
   console.log(john.__proto__ === Person.prototype); // true
+
+  console.log(Person.prototype.isPrototypeOf(john)); // true
