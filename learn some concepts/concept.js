@@ -96,3 +96,21 @@ document.getElementById("parent").addEventListener("click", function() {
   console.log(john.__proto__ === Person.prototype); // true
 
   console.log(Person.prototype.isPrototypeOf(john)); // true
+
+  // we can put new methods in prototype
+  let arr1 = [7,7,3,2,1,3,1,6];
+
+  Array.prototype.unique = function() {
+    return [...new Set(this)];
+  };
+
+  console.log(arr1.unique());
+
+
+  Array.prototype.great = function() {
+    return this.filter((el, i, arr) => el > arr[i+1]);
+  };
+
+  console.log(arr1.great());
+
+  // but the above method is not recommended because it can cause problems in future updates of js or libraries that we use in our project
