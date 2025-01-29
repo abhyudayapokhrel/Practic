@@ -153,3 +153,36 @@ document.getElementById("parent").addEventListener("click", function() {
   console.log(jessica1.greet());
 
   console.log(jessica1.__proto__ === PersonCl1.prototype); // true
+
+
+  // us vanity number plate check function
+
+  // conditions;
+  // 1. the number plate should be 5-7 characters long
+  // 2. the first 3 characters should be alphabets
+  // 3. the last 4 characters should be numbers
+  // 4. the number plate should be in uppercase
+
+  const checkVanityNumberPlate = function(numberPlate) {
+  
+    if (numberPlate.length <5 || numberPlate.length > 7) {
+      return false;
+    }
+
+    const letters = /^[A-Za-z]+$/;
+    
+    if (!numberPlate.slice(0,3).match(letters)) {
+      return false;
+    }
+
+    const numbers = /^[0-9]+$/;
+
+    if (!numberPlate.slice(-4).match(numbers)) {
+      return false;
+    }
+
+    return numberPlate === numberPlate.toUpperCase();
+
+  };
+
+  console.log(checkVanityNumberPlate('ABC1234'));
