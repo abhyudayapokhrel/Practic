@@ -114,3 +114,42 @@ document.getElementById("parent").addEventListener("click", function() {
   console.log(arr1.great());
 
   // but the above method is not recommended because it can cause problems in future updates of js or libraries that we use in our project
+
+  // es6 classes
+  // class expression
+  const PersonCl = class {
+    constructor(firstName, birthYear) {
+      this.firstName = firstName;
+      this.birthYear = birthYear;
+    }
+  };
+
+  const jessica = new PersonCl('Jessica', 1996);
+
+  console.log(jessica);
+
+  // class declaration
+
+  class PersonCl1 {
+    constructor(firstName, birthYear) {
+      this.firstName = firstName;
+      this.birthYear = birthYear;
+    }
+
+    calcAge() {
+      console.log(2037 - this.birthYear);
+    }
+
+    greet() {
+      console.log(`Hey ${this.firstName}`);
+    }
+  }
+
+  const jessica1 = new PersonCl1('Jessica', 1996);
+
+  console.log(jessica1);
+
+  console.log(jessica1.calcAge()); 
+  console.log(jessica1.greet());
+
+  console.log(jessica1.__proto__ === PersonCl1.prototype); // true
