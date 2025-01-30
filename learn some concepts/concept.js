@@ -186,3 +186,23 @@ document.getElementById("parent").addEventListener("click", function() {
   };
 
   console.log(checkVanityNumberPlate('ABC1234'));
+
+
+  // inheritance between classes
+  // constructor function
+  const Person1 = function(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  };
+
+  Person1.prototype.calcAge = function() {
+    console.log(2037 - this.birthYear);
+  };
+
+  const Student = function(firstName, birthYear, course) {
+    Person1.call(this, firstName, birthYear);
+    this.course = course;
+  };
+
+  Student.prototype = Object.create(Person1.prototype);
+  Student.prototype.constructor = Student;
