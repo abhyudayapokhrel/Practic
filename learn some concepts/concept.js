@@ -206,3 +206,29 @@ document.getElementById("parent").addEventListener("click", function() {
 
   Student.prototype = Object.create(Person1.prototype);
   Student.prototype.constructor = Student;
+
+
+  // getters and setters
+
+  const person2 = function(name) {  
+
+  // validation
+
+  // this should be done when setting a property that already exists
+    set fullName(name){
+      if (name.includes(' ')) {
+        this._fullName = name;  // _ is used to indicate that this is a private property and should not be accessed directly this is a convention not a rule
+      } else {
+        alert(`${name} is not a full name`);
+      }
+    },
+  
+
+    get fullName() {
+    return this._fullName;
+  }
+
+  let abhyudaya = new person2('Abhyudaya Pokhrel');
+
+  // this should be used to avoid infinite loops in the code now we can use this.fullName instead of this._fullName because
+}
