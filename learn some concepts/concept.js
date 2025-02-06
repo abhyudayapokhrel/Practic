@@ -257,40 +257,131 @@ document.getElementById("parent").addEventListener("click", function() {
 
   // in above code hey() is a static method, it is not inherited by the objects created by the class but can be called by the class itself like Person3.hey()
 
-
-  // coding challange 2:
-
-  // 1. Re-create challenge 1, but this time using an ES6 class (call it 'CarCl')
-  // 2. Add a getter called 'speedUS' which returns the current speed in mi/h (divide by 1.6)
-  // 3. Add a setter called 'speedUS' which sets the current speed in mi/h (but converts it to km/h before storing the value, by multiplying the input by 1.6)
-  // 4. Create a new car and experiment with the 'accelerate' and 'brake' methods, and with the getter and setter.
-
-  class CarCl{
-    constructor(make, speed){
-      this.make = make;
-      this.speed = speed;
-    }
-    
-    accerlate(){
-      this.speed +=10;
-      console.log(`${this.make} is going at ${this.speed} km/h`);
-    }
-
-    brake(){
-      this.speed -=5;
-      console.log(`${this.make} is going at ${this.speed} km/h`);
-    }
-
-    get speedUS(){
-      return this.speed / 1.6;
-    }
-
-    set speedUS(speed){
-      this.speed = speed * 1.6;
-    }
+  
+  // inheritance within classes
+  // 1. by constructor function
+  
+  const Person4 =  function(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
   }
 
+  Person4.prototype.calcAge = function() {
+    console.log(2037 - this.birthYear);
+  }
 
-  const ford = new CarCl('Ford', 120);
-  console.log(ford.speedUS);
-  ford.accerlate();
+  const Student1 = function(firstName, birthYear, course) {
+    // Person4.(firstName, birthYear); this will not work because it will create a new object and the properties of the object will not be inherited as this keyword will point to the new object
+
+    // so we have to manually set the this keyword to the object that we want to inherit by call method and passing 1st argument as this and rest of the arguments as the arguments of the parent class
+    Person4.call(this, firstName, birthYear);
+    this.course = course;
+  }
+
+  // exactly here:
+  Student1.prototype = Object.create(Person4.prototype);
+  // before adding any method to the prototype we have to set the constructor property of the prototype to the constructor function of the child class
+
+  Student1.prototype.introduce = function() {
+    console.log(`My name is ${this.firstName} and I am studying ${this.course}`);
+  };
+
+  const shyam = new Student1('Shyam', 1990, 'Computer Science');
+
+  shyam.calcAge();// calcAge is inherited from Person4
+
+  Student1.prototype.constructor = Student1;  // this is done to set the constructor property of the prototype to the constructor function of the child class
+  
+  
+    // coding challange 2:
+  
+    // 1. Re-create challenge 1, but this time using an ES6 class (call it 'CarCl')
+    // 2. Add a getter called 'speedUS' which returns the current speed in mi/h (divide by 1.6)
+    // 3. Add a setter called 'speedUS' which sets the current speed in mi/h (but converts it to km/h before storing the value, by multiplying the input by 1.6)
+    // 4. Create a new car and experiment with the 'accelerate' and 'brake' methods, and with the getter and setter.
+  
+    class CarCl{
+      constructor(make, speed){
+        this.make = make;
+        this.speed = speed;
+      }
+      
+      accerlate(){
+        this.speed +=10;
+        console.log(`${this.make} is going at ${this.speed} km/h`);
+      }
+  
+      brake(){
+        this.speed -=5;
+        console.log(`${this.make} is going at ${this.speed} km/h`);
+      }
+  
+      get speedUS(){
+        return this.speed / 1.6;
+      }
+  
+      set speedUS(speed){
+        this.speed = speed * 1.6;
+      }
+    }
+  
+  
+    const ford = new CarCl('Ford', 120);
+    console.log(ford.speedUS);
+    ford.accerlate();
+  
+  
+
+  // coding challange 3
+
+  // 1. Use a constructor function to implement an Electric Car (called 'EV') as a child "class" of 'Car'. Besides a make and current speed, the 'EV' also has the current battery charge in % ('charge' property)
+  // 2. Implement a 'chargeBattery' method which takes an argument 'chargeTo' and sets the battery charge to 'chargeTo'
+  // 3. Implement an 'accelerate' method that will increase the car's speed by 20, and decrease the charge by 1%. Then log a message like this: 'Tesla going
+  // at 140 km/h, with a charge of 22%'
+  // 4. Create an electric car object and experiment with calling 'accelerate', 'brake' and 'chargeBattery' (charge to 90%). Notice what happens when
+  // you 'accelerate'! Hint: Review the definiton of polymorphism 
+  // 😉
+  // Test data:
+  // Data car 1: 'Tesla' going at 120 km/h, with a charge of 23%
+  
+
+  // class EV extends CarCl{
+
+  // }
+
+  const EV = function(make, speed, charge){
+    CarCl.call(this, make, speed);
+    this.charge = charge;
+  };
+
+  // link prototypes:
+  EV.prototype = Object.create(CarCl.prototype);
+
+  EV.prototype.chargeBattery = function(chargeTo){
+    this.charge = chargeTo;
+  }
+
+EV.prototype.accerlate = function(){
+  this.speed +=20;
+  this.charge -=1;
+  console.log(`${this.make} is going at ${this.speed} km/h, with a charge of ${this.charge}%`);
+}
+
+  const tesla = new EV('Tesla', 120, 23);
+  tesla.chargeBattery(90);
+
+  tesla.brake();
+  tesla.accerlate(); // it's own accelerate method is called because of polymorphism -- child class overwrites the parent class method
+
+  //ES6  method
+
+  class StudentCl2 extends PersonCl1 {
+    constructor(firstName, birthYear, course) {
+      super(firstName, birthYear);// this should be called first or else 'this' keyword will not work
+      this.course = course;
+    }
+  
+    introduce() {
+      console.log(`My name is ${this.firstName} and I am studying ${this.course}`);
+    }
+  } 
