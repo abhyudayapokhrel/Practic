@@ -385,3 +385,10 @@ EV.prototype.accerlate = function(){
       console.log(`My name is ${this.firstName} and I am studying ${this.course}`);
     }
   } 
+
+  const martha = new StudentCl2('Martha', 2012, 'Computer Science'); 
+
+  martha.introduce();
+  martha.calcAge();
+
+  
