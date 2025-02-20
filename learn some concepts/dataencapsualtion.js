@@ -65,4 +65,3 @@ const acc1 = new Account ('Abhyudaya', 'USD', 1234);
 acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
 
 console.log(acc1.getMovements());
-
