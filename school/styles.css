@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f8f0; /* Light green background */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2e8b57; /* Darkish green */
+    padding: 10px 20px;
+}
+
+nav #logo img {
+    height: 50px;
+}
+
+nav #nav-btns a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav #nav-btns a:hover {
+    text-decoration: underline;
+}
+
+#showcase {
+    background: url('school-photo.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+#showcase h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#showcase p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+#showcase button {
+    background-color: #2e8b57; /* Darkish green */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#showcase button:hover {
+    background-color: #3cb371; /* Lighter green */
+}
+
+#about-us, #facilities, #contact {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-us h2, #facilities h2, #contact h3 {
+    color: #2e8b57; /* Darkish green */
+}
+
+#facilities {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#facilities .blocks {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f0f8f0; /* Light green */
+    border-radius: 10px;
+    text-align: center;
+}
+
+#contact #map {
+    height: 200px;
+    background-color: #ddd; /* Placeholder for map */
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #2e8b57; /* Darkish green */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
