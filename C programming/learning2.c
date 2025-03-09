@@ -7,7 +7,8 @@ int main(){
     int *ptr1, *ptr2;
     int totalStudents = 12;
 
-    ptr1 = calloc(totalStudents, sizeof(*ptr1));
+    ptr1 = calloc(totalStudents, sizeof(*ptr1)); // allocates memory and makes it 0 
+    ptr1 = malloc (totalStudents*sizeof(*ptr1));
     
     if (ptr1 == NULL) {
         printf("Memory allocation failed\n");
