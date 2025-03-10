@@ -12,4 +12,4 @@ int main(){
 
     printf("/nName: %s\t Roll No: %d", p.name, p.roll_no);
     return 0;
-}f
+}
