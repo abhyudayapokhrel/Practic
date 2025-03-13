@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Abhyudaya Pokhrel</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        let startBtn = document.querySelector("#start");
+        let stopBtn = document.querySelector("#stop");
+
+        let intervalId = null; // Ensure it's initialized properly
+
+        const fn = function () {
+            if (intervalId === null) {  // Prevent multiple intervals from stacking
+                intervalId = setInterval(() => {
+                    console.log("hello", Date.now());
+                }, 1000);
+            }
+        };
+
+        const fn2 = function () {
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+                intervalId = null;  // Reset to allow restarting
+            }
+        };
+
+        startBtn.addEventListener('click', fn);
+        stopBtn.addEventListener('click', fn2);
+    </script>
+</body>
+</html>
