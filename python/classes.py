@@ -11,9 +11,13 @@ class Person:
     def myFunction(self):
         print(f"Hello!! {self.name}. You got {self.percentage}% in the exam")
 
-p1  = Person("Abhyduaya", 18, 22)
+p1  = Person("Abhyduaya", 18, 41)
+p2 = Person("Mahesh", 16, 40)
 
 print(p1.name)
 print(p1.age)
+print(p2.name)
+print(p2.age)
 
 p1.myFunction()
+p2.myFunction()
