@@ -7,5 +7,8 @@ print(f"the square of {a} is {square(a)}")
 
 print("-----------------")
 
+def cube (x):
+    return x*x*x
 
+print(f"The cube is {cube(a)}")
 
