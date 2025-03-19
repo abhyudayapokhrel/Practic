@@ -10,5 +10,9 @@ print("-----------------")
 def cube (x):
     return x*x*x
 
+def quadruple (x):
+    return x*x*x*x
+
 print(f"The cube is {cube(a)}")
+print(f"The quadruple is {quadruple(a)}")
 
