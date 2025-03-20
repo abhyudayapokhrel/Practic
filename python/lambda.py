@@ -12,5 +12,6 @@ print(people)
 
 #or better way would be
 
-people.sort(key = lambda people: people["name"]);
+people.sort(key = lambda people: people["name"])
+people.sort(key = lambda people: people["name"])
 print(people)
