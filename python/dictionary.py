@@ -6,6 +6,10 @@ for person in houses:
 
 for person in houses:
     print(houses.get(person)) 
+for person in houses:
+    print(houses.get(person)) 
+for person in houses:
+    print(houses.get(person)) 
 
 for i in people:
     print(i)
