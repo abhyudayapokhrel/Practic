@@ -20,3 +20,4 @@ print(f"The cube is {cube(a)}")
 print(f"The quadruple is {quadruple(a)}")
 
 print(f"The number five times is {fivetimes(a)}")
+
